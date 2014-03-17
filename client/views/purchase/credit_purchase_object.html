@@ -1,0 +1,40 @@
+<template name="creditPurchaseObject">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        {{#if stateIsOrder}}
+          {{> orderFormObject}}
+        {{else}}
+          {{> orderConfirmationObject}}
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="orderFormObject">
+  <form>
+    <div class="form-group">
+      <label for="amountInt">Net Amount</label>
+      <input type="text" class="form-control" id="amountIntObject" value="{{amount}}">
+    </div>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text"  class="form-control" id="nameObject" value="{{name}}">
+    </div>
+    <div class="form-group">
+      <label for="address">Address</label>
+      <textarea id="addressObject" rows="3">{{address}}</textarea>
+    </div>
+    <button type="submit" class="btn btn-default">Continue</button>
+  </form>
+</template>
+
+<template name="orderConfirmationObject">
+  <p>Amount: {{amount}}</p>
+  <p>Vat: {{vat}}</p>
+  <p>Total: {{total}}</p>
+  <p>Address:</p>
+  <p>{{address}}</p>
+  <button class="btn btn-default edit">Edit</button>
+</template>
